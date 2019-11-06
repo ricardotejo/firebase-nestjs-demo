@@ -1,0 +1,60 @@
+<!--Navbar-->
+<mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark indigo">
+
+    <!-- Navbar brand -->
+    <mdb-navbar-brand><a class="navbar-brand" href="#">Firebase Nest.js Demo</a></mdb-navbar-brand>
+
+    <!-- Collapsible content -->
+    <links>
+        <!-- Links -->
+        <ul class="navbar-nav ml-lg-5 mr-auto">
+            <li class="nav-item mr-lg-3" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <a routerLink="/" class="nav-link waves-light" nav-link waves-light mdbWavesEffect>Inicio</a>
+            </li>
+            <li class="nav-item " routerLinkActive="active">
+                <a routerLink="/clientes" class="nav-link waves-light" nav-link waves-light mdbWavesEffect>Lista de
+                    Clientes</a>
+            </li>
+
+        </ul>
+        <!-- Icons -->
+        <ul class="navbar-nav ml-auto nav-flex-icons d-none d-lg-block">
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.linkedin.com/in/ricardotejo/" title="Linkedin" target="_blank">
+                    <mdb-icon fab icon="linkedin"></mdb-icon>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav nav-flex-icons d-none d-lg-block">
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/ricardotejo" title="Github" target="_blank">
+                    <mdb-icon fab icon="github"></mdb-icon>
+                </a>
+            </li>
+        </ul>
+
+        <!-- icons on menu -->
+        <ul class="navbar-nav ml-lg-5 mr-auto d-lg-none">
+            <li class="nav-item">
+                <a class="nav-link" href="https://www.linkedin.com/in/ricardotejo/" target="_blank">
+                    <mdb-icon fab icon="linkedin"></mdb-icon>Linkedin
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/ricardotejo" target="_blank">
+                    <mdb-icon fab icon="github"></mdb-icon>Github
+                </a>
+            </li>
+        </ul>
+
+    </links>
+    <!-- Collapsible content -->
+
+
+
+</mdb-navbar>
+<!--/.Navbar-->
+
+<main>
+    <router-outlet></router-outlet>
+</main>

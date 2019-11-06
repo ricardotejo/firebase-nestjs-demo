@@ -1,0 +1,80 @@
+{
+  "name": "firebase-nest-demo-api",
+  "version": "0.0.1",
+  "description": "",
+  "author": "",
+  "license": "MIT",
+  "main": "dist/main.js",
+  "engines": {
+    "node": "8"
+  },
+  "scripts": {
+    "build": "rimraf dist && tsc -p tsconfig.build.json && npm run copy-key ",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "copy-key": "cp -rv src/assets/*-firebase.json dist/assets/",
+    "start": "ts-node -r tsconfig-paths/register src/local.ts",
+    "start:dev": "tsc-watch -p tsconfig.build.json --onSuccess \"node dist/local.js\"",
+    "start:debug": "tsc-watch -p tsconfig.build.json --onSuccess \"node --inspect-brk dist/local.js\"",
+    "start:prod": "node dist/local.js",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:cov": "jest --coverage --forceExit",
+    "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "test:e2e": "jest --config ./test/jest-e2e.json --forceExit",
+    "firestore": "firebase emulators:start --only firestore",
+    "deploy": "firebase deploy --only functions"
+  },
+  "dependencies": {
+    "@firebase/testing": "^0.13.0",
+    "@nestjs/common": "^6.6.7",
+    "@nestjs/core": "^6.6.7",
+    "@nestjs/platform-express": "^6.6.7",
+    "@nestjs/swagger": "^3.1.0",
+    "@types/helmet": "0.0.44",
+    "express": "^4.17.1",
+    "firebase-admin": "^8.5.0",
+    "firebase-functions": "^3.2.0",
+    "helmet": "^3.21.0",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^2.6.2",
+    "rxjs": "^6.5.3",
+    "swagger-ui-express": "^4.0.7"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^6.0.0",
+    "@types/express": "4.16.1",
+    "@types/jest": "^24.0.11",
+    "@types/node": "11.13.4",
+    "@types/supertest": "2.0.7",
+    "jest": "24.7.1",
+    "prettier": "1.17.0",
+    "supertest": "4.0.2",
+    "ts-jest": "24.0.2",
+    "ts-node": "8.1.0",
+    "tsc-watch": "2.2.1",
+    "tsconfig-paths": "3.8.0",
+    "tslint": "5.16.0",
+    "typescript": "3.4.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "coverageDirectory": "../coverage",
+    "coverageReporters": [
+      "text",
+      "cobertura",
+      "json",
+      "lcov"
+    ],
+    "testEnvironment": "node"
+  }
+}

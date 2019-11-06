@@ -1,0 +1,26 @@
+<div class="d-lg-flex justify-content-between">
+    <h1>Lista de clientes</h1>
+    <button [routerLink]="['nuevo']" mdbBtn type="button" gradient="blue" rounded="true" mdbWavesEffect>Nuevo</button>
+</div>
+<table mdbTable>
+    <thead>
+        <tr>
+            <th *ngFor="let head of headElements" scope="col">{{head}} </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr mdbTableCol *ngFor="let el of elements$ | async">
+            <th scope="row">{{el.firstName}}</th>
+            <td>{{el.lastName}}</td>
+            <td>{{el.age}}</td>
+            <td>{{el.sex === 'B' ? '*' : el.sex}}</td>
+            <td>{{el.death | fromIsoDate}}</td>
+        </tr>
+    </tbody>
+</table>
+<button mdbBtn type="button" gradient="aqua" rounded="true" mdbWavesEffect (click)="loadMore()"
+    [disabled]="loading$ | async">Cargar más...</button>
+
+<div class="spinner-grow text-info" role="status" *ngIf="loading$ | async" >
+    <span class="sr-only">Cargando...</span>
+</div>

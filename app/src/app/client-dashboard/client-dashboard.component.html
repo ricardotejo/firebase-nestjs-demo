@@ -1,0 +1,98 @@
+<h1>Análisis de Clientes</h1>
+
+<div class="card-deck">
+    <!-- Card 1 -->
+    <mdb-card>
+        <mdb-card-body>
+            <mdb-card-title>
+                <h4>Total de clientes</h4>
+            </mdb-card-title>
+        </mdb-card-body>
+        <div *ngIf="kpi | async as k; else loading" class="card-content">
+            <p class="display-2 text-info">{{k.n}}</p>
+        </div>
+    </mdb-card>
+
+    <!-- Card 2 -->
+    <mdb-card>
+        <mdb-card-body>
+            <mdb-card-title>
+                <h4>Promiedio de edades</h4>
+            </mdb-card-title>
+        </mdb-card-body>
+        <div *ngIf="kpi | async as k; else loading" class="card-content">
+            <p class="display-2 text-success">{{k.m | number:'1.2-2'}}</p>
+        </div>
+    </mdb-card>
+
+
+
+    <!-- Card 3 -->
+    <mdb-card>
+        <mdb-card-body>
+            <mdb-card-title>
+                <h4>Desviación estándar</h4>
+            </mdb-card-title>
+        </mdb-card-body>
+        <div *ngIf="kpi | async as k; else loading" class="card-content">
+            <p class="display-2 text-dark">{{k.s | number:'1.2-2'}}</p>
+        </div>
+    </mdb-card>
+
+
+    <!-- Card 4 -->
+    <mdb-card>
+        <mdb-card-body>
+            <mdb-card-title>
+                <h4>Total de clientes por género</h4>
+            </mdb-card-title>
+        </mdb-card-body>
+        <div *ngIf="kpi | async as k; else loading" class="card-content m-1" style="display: block">
+            <canvas mdbChart [chartType]="'pie'" [datasets]="countByGenre" [labels]="chartLabels" [colors]="chartColors"
+                [options]="chartOptions" [legend]="true" height='300px'>
+            </canvas>
+        </div>
+    </mdb-card>
+
+
+    <!-- Card 5 -->
+    <mdb-card>
+        <mdb-card-body>
+            <mdb-card-title>
+                <h4>Distribución de edad por género</h4>
+            </mdb-card-title>
+        </mdb-card-body>
+        <div *ngIf="kpi | async as k; else loading" class="card-content m-1" style="display: block">
+            <canvas mdbChart [chartType]="'bar'" [datasets]="histAge" [labels]="histAgeLabel" [colors]="histColors"
+                [options]="chartHistOptions" [legend]="true" height='300px'>
+            </canvas>
+
+        </div>
+
+
+    </mdb-card>
+
+
+
+    <!-- Card 6 -->
+    <mdb-card>
+        <mdb-card-body>
+            <mdb-card-title>
+                <h4>Clientes que pasaron su esperanza de vida</h4>
+            </mdb-card-title>
+        </mdb-card-body>
+        <div *ngIf="kpi | async as k; else loading" class="card-content m-1" style="display: block">
+            <canvas mdbChart [chartType]="'horizontalBar'" [datasets]="dataLife" [labels]="chartLabels2"
+                [colors]="chartColors" [options]="chartOptions" [legend]="false" height='300px'>
+            </canvas>
+        </div>
+    </mdb-card>
+
+
+</div>
+
+
+
+<ng-template #loading>
+    Loading data...
+</ng-template>

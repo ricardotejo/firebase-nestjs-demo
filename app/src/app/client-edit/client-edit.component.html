@@ -1,0 +1,88 @@
+<h1>Creación de Cliente</h1>
+
+<form [formGroup]="clientForm">
+
+    <!-- Grid row -->
+    <div class="form-row">
+        <!-- Grid column -->
+        <div class="col-7">
+            <div class="md-form">
+                <input mdbInput mdbValidate formControlName="firstName" type="text" id="txtFirstName"
+                    class="form-control">
+                <label for="txtFirstName" class="">Nombre</label>
+                <mdb-error *ngIf="firstNameFormEx.invalid && (firstNameFormEx.dirty || firstNameFormEx.touched)">
+                    El nombre es <strong>requerido</strong>
+                </mdb-error>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grid row -->
+    <div class="form-row">
+        <!-- Grid column -->
+        <div class="col-7">
+            <div class="md-form">
+                <input mdbInput mdbValidate formControlName="lastName" type="text" id="txtLastName"
+                    class="form-control">
+                <label for="txtLastName" class="">Apellido</label>
+                <mdb-error *ngIf="lastNameFormEx.invalid && (lastNameFormEx.dirty || lastNameFormEx.touched)">
+                    El apellido es <strong>requerido</strong>
+                </mdb-error>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grid row -->
+    <div class="form-row">
+        <!-- Grid column -->
+        <div class="col-7">
+            <div class="md-form">
+
+                <input mdbInput mdbValidate formControlName="birthdate" type="text" id="txtBirthdate"
+                    class="form-control" [min]="calendarOptions.min" [max]="calendarOptions.max" [owlDateTime]="dt1"
+                    [owlDateTimeTrigger]="dt1" required>
+                <label for="txtBirthdate" class="">Fecha de nacimiento</label>
+                <owl-date-time #dt1 [pickerType]="'calendar'" [startView]="'multi-years'"
+                    [startAt]="calendarOptions.startAt">
+                </owl-date-time>
+                <mdb-error *ngIf="birthdateFormEx.invalid && (birthdateFormEx.dirty || birthdateFormEx.touched)">
+                    La fecha de nacimiento es <strong>requerida</strong>
+                </mdb-error>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <button mdbBtn routerLink="/clientes" type="button" color="gray" rounded="true" mdbWavesEffect
+            [disabled]="saving">
+            Cancelar
+        </button>
+        <button mdbBtn type="submit" gradient="blue" color="info" rounded="true" mdbWavesEffect [disabled]="saving"
+            (click)="onSave()" [disabled]="ready">
+            Guardar
+        </button>
+    </div>
+    <!--
+    <mat-form-field>
+        <input type=" text" matInput placeholder="Apellido" formControlName="lastName" [errorStateMatcher]="matcher"
+            autocomplete="off" required>
+            <mat-error *ngIf="clientForm.controls['lastName'].hasError('required')">
+                El apellido es <strong>requerido</strong>
+            </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Fecha de nacimiento" [matDatepicker]="picker" formControlName="birthdate"
+                    [errorStateMatcher]="matcher" autocomplete="off" required>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker startView="multi-year" startAt="2000-01-01"></mat-datepicker>
+                <mat-error *ngIf="clientForm.hasError('required')">
+                    La fecha de nacimiento <strong>requerida</strong>
+                </mat-error>
+                <mdb-success *ngIf="emailFormEx.valid && (emailFormEx.dirty || emailFormEx.touched)">Input valid
+                </mdb-success>
+            </mat-form-field>
+
+
+            -->
+</form>

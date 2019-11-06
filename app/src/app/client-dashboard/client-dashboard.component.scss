@@ -1,0 +1,29 @@
+.card-deck {
+  display: grid;
+  margin: 30px auto;
+  max-width: 950px;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-gap: 1em;
+}
+
+@media (min-width: 992px) {
+  .card-deck {
+    grid-template-columns: repeat(3, 330px);
+  }
+}
+
+.card-body {
+  flex: none;
+}
+
+.card-content {
+  display: grid;
+  min-height: 5em;
+  
+  p.display-2 {
+    align-self: center;
+    justify-self: center;
+  }
+}
+

@@ -1,0 +1,15 @@
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+@import "~angular-bootstrap-md/assets/scss/bootstrap/bootstrap.scss";
+@import "~angular-bootstrap-md/assets/scss/mdb.scss";
+@import "~animate.css/animate.css";
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+
+// Enable PRO styles
+.btn.btn-rounded {
+  border-radius: 10em;
+}
+
