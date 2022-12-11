@@ -32,7 +32,7 @@
     "@nestjs/platform-express": "^6.6.7",
     "@nestjs/swagger": "^3.1.0",
     "@types/helmet": "0.0.44",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "firebase-admin": "^8.5.0",
     "firebase-functions": "^3.2.0",
     "helmet": "^3.21.0",
